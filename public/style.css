@@ -51,6 +51,58 @@ body {
     margin-top: 50px;
 }
 
+#search-button {
+    padding: 10px;
+    height: 50px;
+    width: 70px;
+    margin-left: 10px;
+    margin-top: 15px;
+    background-color: #00008b; /* Deep blue to match the theme */
+    color: #cff4ff; /* Light sky blue text to complement the theme */
+    border: none; /* Remove default border */
+    border-radius: 15px; /* Rounded corners */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#search-button:hover {
+    background-color: #cff4ff; /* Light sky blue background on hover */
+    color: #00008b; /* Deep blue text on hover */
+}
+
+#home h2 {
+    margin-top: 75px;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+#home h4 {
+    font-size: 18px;
+}
+
+#home p {
+    font-size: 18px;
+    margin-bottom: 45px;
+}
+
+#services h2 {
+    margin-top: 75px;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+#contact h2 {
+    margin-top: 75px;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+#about h2 {
+    margin-top: 75px;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
 main {
     flex-grow: 1; /* Take up remaining space */
     transition: margin-left 0.5s;
@@ -64,4 +116,21 @@ main:not(.collapsed) {
 
 main.collapsed {
     margin-left: 250px; /* Remove margin when sidebar is collapsed */
+}
+
+#search-container {
+    padding: 10px;
+}
+
+#search-bar {
+    width: 60%; /* Adjust based on your layout preference */
+    height: 70px;
+    padding: 10px;
+    border: 2px solid #00008b; /* Color to match your theme */
+    border-radius: 25px; /* Rounded corners */
+    outline: none; /* Removes the default focus outline */
+}
+
+#search-bar:hover {
+    border-color: #cff4ff; /* Hover effect color change */
 }
