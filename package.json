@@ -1,0 +1,22 @@
+{
+    "name": "@health/zip",
+    "version": "1.0.0",
+    "description": "Health.ZIP helps you find the best location for setting up a clinic in your area.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/murtuzmk/Health.ZIP.git"
+    },
+    "keywords": [
+        "healthcare",
+        "website",
+        "nodejs"
+    ],
+    "homepage": "https://github.com/yourusername/my-healthcare-project#readme",
+    "dependencies": {
+        "express": "^4.19.2"
+    }
+}
