@@ -4,45 +4,64 @@ body {
     padding: 0;
     color: #00008b; /* Deep blue text */
     background-color: #cff4ff; /* Light sky blue background */
-}
-
-header {
-    background-color: #00008b; /* Deep blue background */
-    color: #cff4ff; /* Light sky blue text */
-    padding: 10px 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-    text-align: center;
-}
-
-nav#navbar {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+}
+
+#toggleSidebar {
+    position: fixed;
+    z-index: 2;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+}
+
+#sidebar {
+    width: 250px;
+    background-color: #00008b;
+    color: #cff4ff;
+    height: 100vh; /* Full height */
+    transition: width 0.5s;
+    overflow-x: hidden;
+}
+
+#sidebar.collapsed {
+    width: 0;
+    /*overflow: hidden;*/
+}
+
+#navbar {
     list-style-type: none;
+    padding: 0;
 }
 
-nav#navbar a {
-    text-decoration: none;
-    color: #fff;
-    padding: 10px 15px;
+#navbar a {
     display: block;
+    color: #cff4ff;
+    padding: 10px;
+    text-decoration: none;
+    text-align: center;
 }
 
-nav#navbar a.active,
-nav#navbar a:hover {
-    background-color: #003366;
+#sidebar h1 {
+    padding: 25px;
+    text-align: center;
+    font-size: 40px;
+    margin-top: 50px;
 }
 
 main {
-    padding: 15px;
+    flex-grow: 1; /* Take up remaining space */
+    transition: margin-left 0.5s;
+    padding: 20px;
+    overflow: hidden;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
+main:not(.collapsed) {
+    margin-left: 250px; /* Same as sidebar width when it's not collapsed */
+}
+
+main.collapsed {
+    margin-left: 250px; /* Remove margin when sidebar is collapsed */
 }

@@ -6,7 +6,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <div id="toggleSidebar">
+        <img src="sidebar-hide-svgrepo-com.svg" alt="Close Sidebar"width="40" height="40">
+    </div>
+
+    <aside id="sidebar">
         <h1>Health.ZIP</h1>
         <nav id="navbar">
             <a href="#home" class="active">Home</a>
@@ -14,11 +18,11 @@
             <a href="#about">About Us</a>
             <a href="#contact">Contact</a>
         </nav>
-    </header>
+    </aside>
     
     <main>
         <section id="home">
-            <h2>Welcome to Our Health.ZIP</h2>
+            <h2>Welcome to Health.ZIP</h2>
             <p>Your health is our top priority.</p>
         </section>
         <section id="services">
@@ -34,10 +38,6 @@
             <p>Get in touch with our team for any inquiries.</p>
         </section>
     </main>
-    
-    <footer>
-        <p>&copy; 2024 Health.ZIP. All rights reserved.</p>
-    </footer>
     
     <script src="script.js"></script>
 </body>
