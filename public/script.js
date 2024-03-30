@@ -18,3 +18,9 @@ document.getElementById('toggleSidebar').addEventListener('click', function() {
         toggleIcon.alt = 'Open Sidebar';
     }
 });
+document.getElementById('search-button').addEventListener('click', function() {
+    const zipcode = document.getElementById('zipcode-search').value;
+    const range = document.getElementById('range-search').value;
+    console.log('Zipcode:', zipcode, 'Range:', range);
+    window.location.href = 'service.html';
+});

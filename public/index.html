@@ -14,7 +14,6 @@
         <h1>Clinic Compass</h1>
         <nav id="navbar">
             <a href="#home" class="active">Home</a>
-            <a href="service.html">Services</a>
             <a href="about.html">About Us</a>
             <a href="contact.html">Contact</a>
         </nav>
@@ -24,12 +23,12 @@
         <section id="home">
             <h2>Welcome to Clinic Compass</h2>
             <h4>We will help you find the best location for your future Clinic!</h4>
-            <p>Start by giving us your Zipcode of where you would like to open a Clinic follwed by how far you are willing to open a clinic from the said Zipcode</p>
-        <div id="search-container">
-            <input type="search" id="search-bar" placeholder="Enter your Zipcode">
+            <p>Start by giving us your Zipcode of where you would like to open your clinic follwed by how far you are willing to open a clinic from the said Zipcode</p>
+        <div id="zip-container">
+            <input type="number" id="zipcode-search" placeholder="Enter your Zipcode" min="10000" max="99999" step="1">
         </div>
-        <div id="search-container">
-            <input type="search" id="search-bar" placeholder="Enter your range">
+        <div id="radius-container">
+            <input type="number" id="range-search" placeholder="Enter your range" min="1" step="1">
         </div>
         <button type="submit" id="search-button">Search</button>
         </section>

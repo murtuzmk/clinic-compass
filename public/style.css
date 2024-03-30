@@ -118,19 +118,36 @@ main.collapsed {
     margin-left: 250px; /* Remove margin when sidebar is collapsed */
 }
 
-#search-container {
+#zip-container {
     padding: 10px;
 }
 
-#search-bar {
+#radius-container {
+    padding: 10px;
+}
+
+#range-search {
     width: 60%; /* Adjust based on your layout preference */
-    height: 70px;
+    height: 60px;
     padding: 10px;
     border: 2px solid #00008b; /* Color to match your theme */
     border-radius: 25px; /* Rounded corners */
     outline: none; /* Removes the default focus outline */
 }
 
-#search-bar:hover {
+#range-search:hover {
+    border-color: #cff4ff; /* Hover effect color change */
+}
+
+#zipcode-search {
+    width: 60%; /* Adjust based on your layout preference */
+    height: 60px;
+    padding: 10px;
+    border: 2px solid #00008b; /* Color to match your theme */
+    border-radius: 25px; /* Rounded corners */
+    outline: none; /* Removes the default focus outline */
+}
+
+#zipcode-search:hover {
     border-color: #cff4ff; /* Hover effect color change */
 }
