@@ -8,6 +8,8 @@ from sklearn.cluster import KMeans, DBSCAN
 import numpy as np
 from flask import Flask, request, jsonify
 
+zipcode = 0
+
 app = Flask(__name__)
 @app.route('/process', methods=['POST'])
 def process():
@@ -21,21 +23,21 @@ def process():
 DAYS_IN_A_YEAR = 365
 PERCENTAGE_VISITS_YEAR = 0.101
 
-def get_zip_coordinates(zip, dfZips, dfHospitals):
+def get_zip_coordinates(zip, dfZips, dfHospitals, miles):
     pd.set_option('display.max_columns', None)
     pd.set_option('display.width', None)
 
     row = dfZips[dfZips['zip'] == zip]
     lat = float(row['lat'].values[0])
     lng = float(row['lng'].values[0])
-    min_lat, max_lat, min_lng, max_lng = calculate_5_mile_bounds(lat, lng)
+    min_lat, max_lat, min_lng, max_lng = calculate_mile_bounds(lat, lng, miles)
     filteredZips = dfZips[(dfZips['lat'] >= min_lat) & (dfZips['lat'] <= max_lat) &
                      (dfZips['lng'] >= min_lng) & (dfZips['lng'] <= max_lng)]
     filteredHospitals = dfHospitals[(dfHospitals['LATITUDE'] >= min_lat) & (dfHospitals['LATITUDE'] <= max_lat) &
                           (dfHospitals['LONGITUDE'] >= min_lng) & (dfHospitals['LONGITUDE'] <= max_lng)]
     return filteredZips, filteredHospitals, min_lat, max_lat, min_lng, max_lng
 
-def calculate_5_mile_bounds(latitude, longitude):
+def calculate_mile_bounds(latitude, longitude, miles):
     # Constants
     miles_per_degree = 69
 
@@ -99,7 +101,7 @@ if __name__ == '__main__':
     dfZips = pd.read_csv("zips.csv")
     dfHospitals = pd.read_csv("hospital_locations.csv")
     dfZips, dfHospitals, min_lat, max_lat, min_lng, max_lng = (
-        get_zip_coordinates(94089, dfZips, dfHospitals))
+        get_zip_coordinates(zipcode, dfZips, dfHospitals, 5))
 
     # create needed info for optimization
     cities = dfZips[['lat', 'lng', 'population']].to_numpy()
