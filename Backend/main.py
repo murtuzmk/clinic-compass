@@ -6,6 +6,17 @@ from gurobipy import GRB
 import csv
 from sklearn.cluster import KMeans, DBSCAN
 import numpy as np
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+@app.route('/process', methods=['POST'])
+def process():
+    data = request.json
+    zipcode = data['zipcode']
+    range_km = data['range']
+    # Process the data as needed
+    print(zipcode, range_km)  # Example of processing
+    return jsonify({'status': 'success', 'zipcode': zipcode, 'range': range_km})
 
 DAYS_IN_A_YEAR = 365
 PERCENTAGE_VISITS_YEAR = 0.101
@@ -82,6 +93,8 @@ def optimize(cities, hospitals, potential_locations):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    #run flask app
+    app.run(debug=True)
     #load the appropriate dataframes within a 5 mile radius
     dfZips = pd.read_csv("zips.csv")
     dfHospitals = pd.read_csv("hospital_locations.csv")

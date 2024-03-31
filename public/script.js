@@ -21,6 +21,15 @@ document.getElementById('toggleSidebar').addEventListener('click', function() {
 document.getElementById('search-button').addEventListener('click', function() {
     const zipcode = document.getElementById('zipcode-search').value;
     const range = document.getElementById('range-search').value;
-    console.log('Zipcode:', zipcode, 'Range:', range);
+    fetch('/process', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ zipcode: zipcode, range: range })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
     window.location.href = 'service.html';
 });
