@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Clinic Compass</title>
-    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnVwJOvxZgWtzjmI7wKYD15-7hBbh9xCg&callback=initMap"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key={keyhere}&callback=initMap"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,32 +28,16 @@
         async function initMap() {
             const { Map, InfoWindow } = await google.maps.importLibrary("maps");
             const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
-            var pos = { lat: 34.84555, lng: -111.8035 };
+            var pos = { lat: 40.4167, lng: -86.8753 };
             const map = new Map(document.getElementById("map"), {
                 center: pos,
-                zoom: 14,
+                zoom: 11,
                 mapId: "ClinicCompassMap",
             });
             const tourStops = [
     {
-      position: { lat: 34.8791806, lng: -111.8265049 },
-      title: "Boynton Pass",
-    },
-    {
-      position: { lat: 34.8559195, lng: -111.7988186 },
-      title: "Airport Mesa",
-    },
-    {
-      position: { lat: 34.832149, lng: -111.7695277 },
-      title: "Chapel of the Holy Cross",
-    },
-    {
-      position: { lat: 34.823736, lng: -111.8001857 },
-      title: "Red Rock Crossing",
-    },
-    {
-      position: { lat: 34.800326, lng: -111.7665047 },
-      title: "Bell Rock",
+      position: { lat: 40.35, lng: -86.99 },
+      title: "$224k",
     },
   ]; 
             const infoWindow = new InfoWindow();
@@ -78,9 +62,55 @@
       infoWindow.open(marker.map, marker);
     });
   });
-            const marker = new AdvancedMarkerElement({
+  const pin0 = new PinElement({
+              glyph: `H`,
+              glyphColor: "white",
+            });
+            const m0 = new AdvancedMarkerElement({
+              position: { lat: 40.46, lng: -86.89 },
+              map,
+              title: `H`,
+              content: pin0.element,
+            });   
+            const pin1 = new PinElement({
+              glyph: `H`,
+              glyphColor: "white",
+            });    
+            const marker1 = new AdvancedMarkerElement({
                 map,
-                position: { lat: 37.4239163, lng: -122.0947209 },
+                position: { lat: 40.42, lng: -86.87 },
+                title: `H`,
+                content: pin1.element,
+            });
+            const pin2 = new PinElement({
+              glyph: `H`,
+              glyphColor: "white",
+            });
+            const m2 = new AdvancedMarkerElement({
+              position: { lat: 40.41, lng: -86.86 },
+              map,
+              title: `H`,
+              content: pin2.element,
+            });
+            const pin3 = new PinElement({
+              glyph: `H`,
+              glyphColor: "white",
+            });
+            const marker3 = new AdvancedMarkerElement({
+                position: { lat: 40.39, lng: -86.85 },
+                map,
+                title: `H`,
+                content: pin3.element,
+            });
+            const pin4 = new PinElement({
+              glyph: `H`,
+              glyphColor: "white",
+            });
+            const marker4 = new AdvancedMarkerElement({
+                map,
+                position: { lat: 40.40, lng: -86.80 },
+                title: `H`,
+                content: pin4.element,
             });
         }
         initMap();
